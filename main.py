@@ -1,3 +1,4 @@
+global exectxt
 stat = 0
 count =0
 var_list = []
@@ -9,15 +10,12 @@ while stat == 0:
     if stat == 0:
       appendcount += int(input("いくつのデータを入力しますか？ "))
   var_list.append(None)
-  var_list[count] = f"var{str(count+1)}"
+  #var_list[count] = f"var{str(count+1)}"
   var_name=var_list[count]
   if stat ==0:
-    exec("{} = input(exectxt)".format(var_name))
+    var_list[count]=input(exectxt)
+    #exec("{} = input(exectxt)".format(var_name))
+    #exec("var_list[count]=var{}".format(count+1))
   else:
     pass
   count +=1
-with open('data.txt','w') as f:
-      for i in range(len(var_list)):
-        f.write(f'{i},{exectxt}')
-with open('data.txt','r') as f:
-    print(f.read())
